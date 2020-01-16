@@ -1,0 +1,70 @@
+<!DOCTYPE hml>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Lista de tarefas</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+    <body>
+        <div id="todosList">
+            <table id="List">
+                <thead id="headerList">
+                    <tr>
+                        <th id="numero"></th>
+                        <th id="prioridade">Prioridade</th>
+                        <th id="prazo">Prazo</th>
+                        <th id="tarefa">Tarefa</th>
+                        <th id="status">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyList"></tbody>
+            </table>
+        </div>
+        <div id="setNewTodo"> 
+
+                <table id="tableNewTodo">
+                    <thead id="tableHeader">
+                        <tr id="headRow">
+                            <th colspan="2"><h1>Nova tarefa</h1></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label>Descrição:</label></td>
+                            <td><textarea name="tarefaText" id="tarefaText" cols="55" rows="5"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label">Nível de prioridade: </label></td>
+                            <td>
+                                <select name="nivelPrioridade" id="nivelPrioridade">
+                                    <option value=""></option>
+                                    <option value="Alto">Alto</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Baixo">Baixo</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Prazo: </label></td>
+                            <td><input type="text" name="setPrazo" id="setPrazo" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Status</label></td>
+                            <td>
+                                <select name="newStatus" id="newStatus">
+                                    <option value=""></option>
+                                    <option value="Não iniciado">Não iniciado</option>
+                                    <option value="Pendente">Pendente</option>
+                                    <option value="Concluído">Concluído</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="botao">Adicionar afazer</button>
+        
+        </div>
+        <script src="javascript.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+@charset "UTF8";
+
+div#todosList {
+    position: relative;
+    float: left;
+}
+
+table#List {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+table#List th {
+    padding: 10px 20px 10px 20px;
+    border: 2px solid black;
+}
+
+table#List td {
+    border: 2px solid black;
+}
+
+thead#headerList th#tarefa {
+    padding: 10px 120px 10px 120px;
+    width: 45px;
+}
+
+thead#headerList th#status {
+    padding: 10px 50px 10px 50px;
+}
+
+div#setNewTodo {
+    width: 580px; 
+    float: right;
+}
+
+div#setNewTodo {
+    border: 2px solid black;
+}
+
+table#tableNewTodo td {
+    padding: 20px;
+    border: none;
+}
+
+table#tableNewTodo th {
+    border-bottom: 2px solid black;
+}
+
+textarea {
+    outline: none;;
+    resize: none;
+}
+
+select {
+    outline: none;
+}
+
+input {
+    outline: none;
+}
+
+button#botao {
+    margin: 20px;
+}
+
+td.conteudo {
+    text-align: center;
+}
