@@ -66,3 +66,21 @@ button#botao {
 td.conteudo {
     text-align: center;
 }
+
+tbody#tbodyList div {
+    text-align: center;
+    padding: 2px;
+}
+
+tbody#tbodyList div.descricao {
+    text-align: left;
+    word-wrap: break-word;
+    width: 278px;
+    margin-left: 3px;;
+}
+
+tbody#tbodyList div.prazo {
+    word-wrap: break-word;
+    width: 60px;
+    margin-left: 8px;
+}

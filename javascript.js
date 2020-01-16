@@ -18,13 +18,7 @@ btnAdicionarElement.onclick = function() {
 };
 
 function verificarCampos() {
-  if (
-    descriTarefaElement.value.trim() != "" &&
-    nivelPrioElement.value != "" &&
-    prazoElement.value != "" &&
-    prazoElement.value != "" &&
-    statusElement.value != ""
-  ) {
+  if ( descriTarefaElement.value.trim() != "" && nivelPrioElement.value != "" && prazoElement.value.trim() != "" && prazoElement.value != "" && statusElement.value != "") {
     return true;
   } else {
     return false;
@@ -34,8 +28,8 @@ function verificarCampos() {
 function adicionarTarefa() {
   todosList.push({
     prioridade: nivelPrioElement.value,
-    prazo: prazoElement.value,
-    tarefa: descriTarefaElement.value.trim(),
+    prazo: prazoElement.value.trim(),
+    descricao: descriTarefaElement.value.trim(),
     status: statusElement.value
   });
   setarCampos();
@@ -46,25 +40,16 @@ function adicionarTarefa() {
 function renderizarLista() {
   tbodyList.innerHTML = "";
 
-  for (todos of todosList) {
-    var newTr = document.createElement('tr');
-    var btnExcluir = document.createElement('button');
-    btnExcluir.setAttribute('onclick', 'deleteTodo(' + todosList.indexOf(todos) + ')');
-    var btnExcluirText = document.createTextNode('X');
-    btnExcluir.appendChild(btnExcluirText);
-    var td = document.createElement('td');
-    td.appendChild(btnExcluir);
-    newTr.appendChild(td);
-    for (const attributeValue of Object.values(todos)) {
-      var newTd = document.createElement('td');
-      var newDiv = document.createElement('div');
-      newDiv.style.wordWrap = "break-word";
-      var newTdText = document.createTextNode(attributeValue);
-      newDiv.appendChild(newTdText);
-      newTd.appendChild(newDiv);
-      newTr.appendChild(newTd);
-    }
-    tbodyList.appendChild(newTr);
+  for (attributesTodo of todosList) {
+    var newTrElement = document.createElement("tr");
+
+    var tdElements = createTdElements(attributesTodo);
+
+    tdElements.forEach(function(element, index, array) {
+      newTrElement.appendChild(element);
+    });
+
+    tbodyList.appendChild(newTrElement);
   }
 }
 
@@ -85,6 +70,33 @@ function saveToStorage() {
   localStorage.setItem("listaTarefas", JSON.stringify(todosList));
 }
 
-function criarElements() {
+function createTdElements(todo) {
+  var tdElements = [createBtnExcluirElement(todo, "X")];
+  for (const [attribute, value] of Object.entries(todo)) {
+    var newTdElement = document.createElement("td");
+    newTdElement.appendChild(createDivElement(attribute, value));
+    tdElements.push(newTdElement);
+  }
 
+  return tdElements;
+}
+
+function createBtnExcluirElement(todo, text) {
+  var td = document.createElement("td");
+  var btn = document.createElement("button");
+  var btnText = document.createTextNode(text);
+  btn.setAttribute("onclick", "deleteTodo(" + todosList.indexOf(todo) + ")")
+  btn.appendChild(btnText);
+  td.appendChild(createDivElement("botaoExcluir", btn));
+  
+  return td;
+}
+
+function createDivElement(att, value) {
+  var div = document.createElement("div");
+  var divValue = typeof(value) === "object" ? value : document.createTextNode(value);
+  div.setAttribute("class", att);
+  div.appendChild(divValue);
+
+  return div
 }
