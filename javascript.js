@@ -5,6 +5,7 @@ var statusElement = document.getElementById('newStatus');
 var btnAdicionarElement = document.querySelector('button');
 var tbodyList = document.getElementById('tbodyList');
 
+// Teste
 var todosList = JSON.parse(localStorage.getItem("listaTarefas")) || [];
 
 renderizarLista();
