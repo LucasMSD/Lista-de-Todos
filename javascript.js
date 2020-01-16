@@ -5,13 +5,6 @@ var statusElement = document.getElementById("newStatus");
 var btnAdicionarElement = document.querySelector("button");
 var tbodyList = document.getElementById("tbodyList");
 
-<<<<<<< Updated upstream
-=======
-// Teste
-// mudei
-//dsds
-//AAAAA
->>>>>>> Stashed changes
 var todosList = JSON.parse(localStorage.getItem("listaTarefas")) || [];
 
 renderizarLista();
@@ -54,56 +47,23 @@ function renderizarLista() {
   tbodyList.innerHTML = "";
 
   for (todos of todosList) {
-    for (const v of Object.values(todos)) {
-      console.log(v);
+    var newTr = document.createElement('tr');
+    var btnExcluir = document.createElement('button');
+    btnExcluir.setAttribute('onclick', 'deleteTodo(' + todosList.indexOf(todos) + ')');
+    var btnExcluirText = document.createTextNode('X');
+    btnExcluir.appendChild(btnExcluirText);
+    var td = document.createElement('td');
+    td.appendChild(btnExcluir);
+    newTr.appendChild(td);
+    for (const attributeValue of Object.values(todos)) {
+      var newTd = document.createElement('td');
+      var newDiv = document.createElement('div');
+      newDiv.style.wordWrap = "break-word";
+      var newTdText = document.createTextNode(attributeValue);
+      newDiv.appendChild(newTdText);
+      newTd.appendChild(newDiv);
+      newTr.appendChild(newTd);
     }
-    var divTarefa = document.createElement("div");
-    divTarefa.style.width = "284px";
-    divTarefa.style.wordWrap = "break-word";
-    divTarefa.style.marginLeft = "2px";
-    var btnEx = document.createElement("button");
-    btnEx.setAttribute(
-      "onclick",
-      "deleteTodo(" + todosList.indexOf(todos) + ")"
-    );
-    var newTr = document.createElement("tr");
-    var newTdExcluir = document.createElement("td");
-    newTdExcluir.setAttribute("class", "conteudo");
-    var newTdPrioridade = document.createElement("td");
-    newTdPrioridade.setAttribute("class", "conteudo");
-    var newTdPrazo = document.createElement("td");
-    var divPrazo = document.createElement("div");
-    divPrazo.style.width = "60px";
-    divPrazo.style.wordWrap = "break-word";
-    divPrazo.style.marginLeft = "9.2px";
-    newTdPrazo.setAttribute("class", "conteudo");
-    var newTdTarefa = document.createElement("td");
-    var newTdStatus = document.createElement("td");
-    newTdStatus.setAttribute("class", "conteudo");
-
-    var textBtn = document.createTextNode("X");
-    btnEx.appendChild(textBtn);
-    newTdExcluir.appendChild(btnEx);
-    newTr.appendChild(newTdExcluir);
-
-    var tdPrioridadeText = document.createTextNode(todos.prioridade);
-    newTdPrioridade.appendChild(tdPrioridadeText);
-    newTr.appendChild(newTdPrioridade);
-
-    var tdPrazoText = document.createTextNode(todos.prazo);
-    divPrazo.appendChild(tdPrazoText);
-    newTdPrazo.appendChild(divPrazo);
-    newTr.appendChild(newTdPrazo);
-
-    var tdTarefaText = document.createTextNode(todos.tarefa);
-    divTarefa.appendChild(tdTarefaText);
-    newTdTarefa.appendChild(divTarefa);
-    newTr.appendChild(newTdTarefa);
-
-    var tdStatusText = document.createTextNode(todos.status);
-    newTdStatus.appendChild(tdStatusText);
-    newTr.appendChild(newTdStatus);
-
     tbodyList.appendChild(newTr);
   }
 }
@@ -123,4 +83,8 @@ function deleteTodo(i) {
 
 function saveToStorage() {
   localStorage.setItem("listaTarefas", JSON.stringify(todosList));
+}
+
+function criarElements() {
+
 }
