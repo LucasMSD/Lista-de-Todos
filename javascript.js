@@ -5,9 +5,13 @@ var statusElement = document.getElementById("newStatus");
 var btnAdicionarElement = document.querySelector("button");
 var tbodyList = document.getElementById("tbodyList");
 
+<<<<<<< Updated upstream
+=======
 // Teste
+// mudei
+//dsds
 //AAAAA
-// jdskjdkjskdjskjdsk
+>>>>>>> Stashed changes
 var todosList = JSON.parse(localStorage.getItem("listaTarefas")) || [];
 
 renderizarLista();
