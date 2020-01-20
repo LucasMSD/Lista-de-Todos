@@ -19,13 +19,13 @@ table#List td {
     border: 2px solid black;
 }
 
-thead#headerList th#tarefa {
+thead#headerList th#descricao {
     padding: 10px 120px 10px 120px;
-    width: 45px;
+    width: 74px;
 }
 
 thead#headerList th#status {
-    padding: 10px 50px 10px 50px;
+    padding: 10px 32px 10px 32px;
 }
 
 div#setNewTodo {
@@ -61,6 +61,7 @@ input {
 
 button#botaoAdicionar {
     margin: 20px;
+    outline: none;
 }
 
 td.conteudo {
@@ -72,15 +73,22 @@ tbody#tbodyList div {
     padding: 2px;
 }
 
-tbody#tbodyList div.divDescricao {
+tbody#tbodyList div.divdescricaoValue {
     text-align: left;
     word-wrap: break-word;
-    width: 278px;
-    margin-left: 3px;;
+    width: 308px;
 }
 
-tbody#tbodyList div.divPrazo {
+tbody#tbodyList div.divdataLimiteValue {
     word-wrap: break-word;
-    width: 60px;
-    margin-left: 8px;
+    width: 80px;
+}
+
+div#divDataLimite {
+    word-wrap: break-word;
+    width: 46px;
+}
+
+div.divDataLimiteValue {
+    width: 100px;
 }

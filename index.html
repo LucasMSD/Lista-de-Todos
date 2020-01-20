@@ -12,8 +12,10 @@
                     <tr>
                         <th id="numero"></th>
                         <th id="prioridade">Prioridade</th>
-                        <th id="prazo">Prazo</th>
-                        <th id="tarefa">Tarefa</th>
+                        <th id="dataLimite">
+                            <div id="divDataLimite">Data limite</div>
+                        </th>
+                        <th id="descricao">Descrição</th>
                         <th id="status">Status</th>
                     </tr>
                 </thead>
@@ -31,7 +33,7 @@
                     <tr>
                         <td><label>Descrição:</label></td>
                         <td>
-                                <textarea name="descricao" id="descricao" cols="55" rows="5"></textarea>
+                                <textarea name="descricaoInput" id="descricaoInput" cols="55" rows="5"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -46,9 +48,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Prazo: </label></td>
+                        <td><label>Data limite: </label></td>
                         <td>
-                            <input type="text" name="prazoInput" id="prazoInput" autocomplete="off">
+                            <input type="text" name="dataLimiteInput" id="dataLimiteInput" autocomplete="off" maxlength="10">
                         </td>
                     </tr>
                     <tr>

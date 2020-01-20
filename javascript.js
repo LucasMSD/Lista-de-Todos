@@ -1,13 +1,16 @@
-var descricaoInputElement = document.querySelector("#descricao");
+var descricaoInputElement = document.querySelector("#descricaoInput");
 var nivelPrioridadeInputElement = document.querySelector("#nivelPrioridade");
-var prazoInputElement = document.querySelector("#prazoInput");
+var dataLimiteInputElement = document.querySelector("#DataLimiteInput");
 var statusInputElement = document.querySelector("#statusInput");
 var tbodyList = document.querySelector("#tbodyList");
 var botaoAdicionar = document.querySelector("#botaoAdicionar");
 
+
 var listaTarefas = JSON.parse(localStorage.getItem("ListaTarefas")) || [];
 
 renderLista();
+
+dataLimiteInputElement.setAttribute("onkeypress", "return validate(event)");
 
 botaoAdicionar.onclick = function() {
   if (isFieldsFilled()) {
@@ -18,7 +21,7 @@ botaoAdicionar.onclick = function() {
 function adicionarTarefa() {
   listaTarefas.push({
     prioridade: nivelPrioridadeInputElement.value,
-    prazo: prazoInputElement.value,
+    dataLimite: dataLimiteInputElement.value,
     descricao: descricaoInputElement.value.trim(),
     status: statusInputElement.value
   });
@@ -42,7 +45,7 @@ function renderLista() {
     newTrElement.appendChild(tdBtnElement);
 
     for (const [key,value] of Object.entries(tarefa)) {
-      var newDivElement = setElement("div", undefined, value, "div" + key);
+      var newDivElement = setElement("div", undefined, value, "div" + key + "Value");
       var newTdElement = setElement("td", undefined, undefined, "td" + key);
       newTdElement.appendChild(newDivElement);
       newTrElement.appendChild(newTdElement);
@@ -67,11 +70,11 @@ function isFieldsFilled() {
     nivelPrioridadeInputElement.style.borderColor = "rgb(169, 169, 169)";
   }
 
-  if (prazoInputElement.value === "") {
-    prazoInputElement.style.borderColor = "red";
+  if (dataLimiteInputElement.value === "") {
+    dataLimiteInputElement.style.borderColor = "red";
     isFieldsFilled = false;
   } else {
-    prazoInputElement.style.borderColor = "initial"; 
+    dataLimiteInputElement.style.borderColor = "initial"; 
   }
 
   if (statusInputElement.value === "") {
@@ -106,6 +109,18 @@ function saveToLocalStorage() {
 function cleanFields() {
   descricaoInputElement.value = "";
   nivelPrioridadeInputElement.value = "";
-  prazoInputElement.value = "";
+  dataLimiteInputElement.value = "";
   statusInputElement.value = "";
+}
+
+function validate(event) {
+  var keyCode = event.keyCode;
+  if (keyCode >= 48 && keyCode <= 57) {
+    if (dataLimiteInputElement.value.length === 2 || dataLimiteInputElement.value.length === 5) {
+      dataLimiteInputElement.value += "/";
+    }
+    return true;
+  } else {
+    return false;
+  }
 }
