@@ -59,7 +59,7 @@ input {
     outline: none;
 }
 
-button#botao {
+button#botaoAdicionar {
     margin: 20px;
 }
 
@@ -72,14 +72,14 @@ tbody#tbodyList div {
     padding: 2px;
 }
 
-tbody#tbodyList div.descricao {
+tbody#tbodyList div.divDescricao {
     text-align: left;
     word-wrap: break-word;
     width: 278px;
     margin-left: 3px;;
 }
 
-tbody#tbodyList div.prazo {
+tbody#tbodyList div.divPrazo {
     word-wrap: break-word;
     width: 60px;
     margin-left: 8px;
